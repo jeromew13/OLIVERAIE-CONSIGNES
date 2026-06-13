@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Maisons de l'Oliveraie — Consignes</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #F5F3EE;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+  }
+  .wrap {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    align-self: flex-start;
+  }
+  .header {
+    background: #2D5016;
+    color: #fff;
+    padding: 20px 18px 16px;
+    text-align: center;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+  .header p { font-size: 13px; opacity: 0.75; margin-top: 4px; }
+  .section {
+    padding: 14px 18px;
+    border-bottom: 0.5px solid #E8E4DC;
+  }
+  .section:last-child { border-bottom: none; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #2D5016;
+    margin-bottom: 8px;
+  }
+  .section p {
+    font-size: 14px;
+    color: #2C2C2A;
+    line-height: 1.6;
+  }
+  .tarif-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 0.5px solid #F0EDE7;
+  }
+  .tarif-row:last-child { border-bottom: none; }
+  .tarif-label { font-size: 13px; color: #6B6860; }
+  .tarif-price { font-size: 14px; font-weight: 600; color: #2C2C2A; }
+  .alert {
+    background: #FFFBEE;
+    border: 0.5px solid #E8C84A;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 10px;
+  }
+  .alert p { font-size: 13px; color: #5A4A10; line-height: 1.5; }
+  .link-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border: 0.5px solid #E8E4DC;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    background: #FAFAF8;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .link-block:active { background: #F0EDE7; }
+  .link-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #E8F0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .link-icon svg { width: 18px; height: 18px; stroke: #2D5016; }
+  .link-text { font-size: 13px; color: #2C2C2A; font-weight: 600; }
+  .link-sub { font-size: 11px; color: #8A8478; margin-top: 1px; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .contact-row svg { width: 18px; height: 18px; stroke: #8A8478; flex-shrink: 0; }
+  .contact-row a {
+    font-size: 14px;
+    color: #2D5016;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .rib-card {
+    background: #FAFAF8;
+    border: 0.5px solid #E8E4DC;
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+  }
+  .rib-row { margin-bottom: 10px; }
+  .rib-row:last-child { margin-bottom: 0; }
+  .rib-lbl { font-size: 11px; color: #8A8478; margin-bottom: 2px; }
+  .rib-val { font-size: 14px; font-weight: 600; color: #2C2C2A; }
+  .iban-block {
+    background: #fff;
+    border: 0.5px solid #E8E4DC;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .iban-val {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2C2C2A;
+    letter-spacing: 0.5px;
+    word-break: break-all;
+  }
+  .copy-btn {
+    flex-shrink: 0;
+    background: none;
+    border: 0.5px solid #C8C4BC;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #6B6860;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .copy-btn:active { background: #F0EDE7; }
+  .copy-btn.copied { color: #2D5016; border-color: #2D5016; }
+  .copy-btn svg { width: 14px; height: 14px; }
+  .footer {
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: #B0AC9F;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <h1>OLIVERAIE</h1>
+    <p>Consignes avant votre séjour</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Chère famille</div>
+    <p>Vous allez occuper une des deux maisons dans les semaines à venir. Voici quelques dispositions rappelées à la dernière Assemblée Générale.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tarifs</div>
+    <div class="tarif-row">
+      <span class="tarif-label">Printemps &amp; automne</span>
+      <span class="tarif-price">300 € / semaine / maison</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-label">Juillet &amp; août</span>
+      <span class="tarif-price">1 000 € / semaine / maison</span>
+    </div>
+    <div class="alert">
+      <p><strong>RAPPEL</strong><br>En juillet-août, les deux maisons sont à la charge de chaque famille pendant les deux semaines.<br>Soit <strong>4 000 €</strong> pour les deux maisons pour chaque famille.<br>Merci de vous organiser.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Règlement</div>
+    <p><strong>Avant d'entrer dans les lieux</strong>, idéalement par virement bancaire (RIB ci-dessous).</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Ménage</div>
+    <p>Les maisons doivent être laissées <strong>propres</strong>. Le ménage n'est plus inclus.</p>
+    <p style="margin-top:8px">Si vous souhaitez que Stéphanie intervienne, il faut vous y prendre à l'avance et gérer le coût de l'intervention avec elle :</p>
+    <div class="contact-row">
+      <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      <a href="tel:0612768975">06 12 76 89 75</a>
+    </div>
+  </div>
+
+  <div class="section" style="background:#F0F5EC;">
+    <div class="section-title">🌲 La santé des pins parasol</div>
+    <p style="margin-bottom:10px">Les pins ont besoin de vous chaque semaine. En cliquant sur ce lien vous aurez les consignes de Pauline.</p>
+    <a class="link-block" href="https://bit.ly/Oliveraie-discord" target="_blank" style="margin-bottom:0;background:#fff">
+      <div class="link-icon">
+        <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div>
+        <div class="link-text">Consignes de Pauline — Discord</div>
+        <div class="link-sub">bit.ly/Oliveraie-discord</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Liens utiles</div>
+    <a class="link-block" href="https://bit.ly/4v8IDQ5" target="_blank">
+      <div class="link-icon">
+        <svg fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div>
+        <div class="link-text">Calendrier des occupations</div>
+        <div class="link-sub">bit.ly/4v8IDQ5</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section">
+    <div class="section-title">RIB — virement</div>
+    <div class="rib-card">
+      <div class="rib-row">
+        <div class="rib-lbl">Titulaire</div>
+        <div class="rib-val">SCI Héraclée</div>
+      </div>
+      <div class="rib-row">
+        <div class="rib-lbl">Banque</div>
+        <div class="rib-val">Société Générale — Paris Vaneau</div>
+      </div>
+      <div class="rib-row">
+        <div class="rib-lbl">IBAN</div>
+        <div class="iban-block">
+          <span class="iban-val" id="iban">FR76 3000 3027 3800 0200 1600 148</span>
+          <button class="copy-btn" id="copy-btn" onclick="copyIban()">
+            <svg id="copy-icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span id="copy-label">Copier</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+function copyIban() {
+  const iban = document.getElementById('iban').textContent.replace(/\s/g, '');
+  navigator.clipboard.writeText(iban).then(function() {
+    const btn = document.getElementById('copy-btn');
+    const lbl = document.getElementById('copy-label');
+    const ico = document.getElementById('copy-icon');
+    btn.classList.add('copied');
+    lbl.textContent = 'Copié';
+    ico.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+    setTimeout(function() {
+      btn.classList.remove('copied');
+      lbl.textContent = 'Copier';
+      ico.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>';
+    }, 2500);
+  });
+}
+</script>
+</body>
+</html>
